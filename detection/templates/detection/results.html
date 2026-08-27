@@ -1,0 +1,23 @@
+{% extends 'blog/Fire.html' %}
+
+{% block content %}
+  {% if detection_result %}
+    {% if detection_result.status == "fire" %}
+      <div class="result-container result-fire">
+        <h3>🔥 Fire Detected!</h3>
+        <p><strong>Severity:</strong> {{ detection_result.severity }}</p>
+        <p><strong>Confidence:</strong> {{ detection_result.confidence|floatformat:2 }}</p>
+        <img src="{{ detection_result.image }}" alt="Detection Result">
+      </div>
+    {% else %}
+      <div class="result-container result-nofire">
+        <h3>🚫 No Fire Detected</h3>
+      </div>
+    {% endif %}
+  {% else %}
+    <h3>No image processed yet. Please upload one.</h3>
+  {% endif %}
+
+  <!-- ✅ Back to upload -->
+  <a href="{% url 'mainpage' %}" class="return-btn">⬅️ Return To Home Page</a>
+{% endblock %}

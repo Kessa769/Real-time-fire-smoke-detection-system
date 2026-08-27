@@ -1,0 +1,70 @@
+{% extends 'blog/Fire.html' %}
+ 
+{% block content %}
+<div class="main-container">
+    <!-- Map Section (Left) -->
+    <div id="map" class="map-section">
+        <div class="map-placeholder"></div>
+    </div>
+
+    <!-- Right Side Cubes -->
+    <div class="cubes-section">
+        <!-- Cube 1 - Active Alerts -->
+        <a href="{% url 'run_detection' %}" 
+   class="cube-box {% if system_status == 'Fire Detected' %}fire{% else %}safe{% endif %}">
+    <div class="cube-header">
+        <div class="cube-icon">🚨</div>
+        <div class="cube-number">{{ alerts_count }}</div>
+    </div>
+    <h3>Active Alerts</h3>
+    {% if system_status == "Fire Detected" %}
+        <p>🔥 Critical fire detected</p>
+    {% else %}
+        <p>✅ All systems operational</p>
+    {% endif %}
+</a>
+
+        <!-- Cube 2 - Sensors Online -->
+        <div class="cube-box">
+    <div class="cube-header">
+        <div class="cube-icon">📡</div>
+        <div class="cube-number">{{ active_cameras_count }}</div>
+    </div>
+    <h3>Sensors Online</h3>
+    <p>Active cameras</p>
+</div>
+
+
+        <!-- Cube 3 - System Status -->
+       <div class="cube-box">
+    <div class="cube-header">
+        <div class="cube-status">{{ system_status }}</div>
+    </div>
+    <h3>System Status</h3>
+
+    {% if system_status == "Fire Detected" %}
+        <p class="status-fire">🔥 Fire detected in system</p>
+    {% else %}
+        <p class="status-ok">✅ All systems operational</p>
+    {% endif %}
+</div>
+
+
+
+    </div>
+</div>
+
+<!-- Hidden forms (won't show on page) -->
+<div class="popup-form-container" id="popupFormTemplate" style="display:none;">
+    <form method="POST" action="{% url 'newcamera' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add Camera" />
+    </form>
+</div>
+
+<form id="zoneForm" method="POST" action="{% url 'add_zone' %}" style="display:none;">
+    {% csrf_token %}
+    {{ form.as_p }}
+</form>
+{% endblock %}

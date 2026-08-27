@@ -1,0 +1,12 @@
+{% extends 'blog/Fire.html' %}
+
+{% block content %}
+  <div class="upload-container">
+    <h2>📤 Upload an Image for Fire Detection</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="image">
+      <button type="submit">Detect Fire</button>
+    </form>
+  </div>
+{% endblock %}

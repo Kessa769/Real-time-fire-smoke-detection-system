@@ -1,0 +1,380 @@
+.header {
+  display: flex;
+  align-items: center;           /* Vertically center items */
+  justify-content: center;       /* Center content horizontally */
+  position: relative;            /* For absolute positioning inside */
+  height: 60px;
+  padding: 0 20px;
+}
+
+/* Center the header text and let it take all available space */
+.title {
+  flex: 1;                      /* Takes remaining space */
+  text-align: center;           /* Center the text */
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #15c326;
+}
+
+/* Button positioned top-right inside the header */
+.register {
+  position: absolute;           /* Position relative to .header */
+  right: 95px;
+  top: 50%;                    /* Vertically center relative to header */
+  transform: translateY(-50%);  /* Perfect vertical centering */
+  text-decoration: none;
+  
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register:hover {
+  background-color: #0056b3;
+}
+
+
+/* Button positioned top-right inside the header */
+.login {
+  position: absolute;           /* Position relative to .header */
+  right: 20px;
+  top: 50%;                    /* Vertically center relative to header */
+  transform: translateY(-50%);  /* Perfect vertical centering */
+  
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* === Main Container === */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #fdfdfd;
+}
+
+/* === Dashboard Container: horizontal layout === */
+.dashboard-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 20px;
+  flex-wrap: nowrap; /* Prevent wrapping unless needed */
+}
+
+/* === Map Section (left) === */
+.map-section {
+  flex: 1;
+  min-width: 50%;
+}
+
+.map-placeholder {
+  background-color: #e6e6e6;
+  border: 2px dashed #bbb;
+  border-radius: 10px;
+  padding: 47px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+/* === Info Boxes Section (right) === */
+.info-boxes {
+  flex: 0 0 300px; /* Fixed width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* === Each Cube === */
+.cube-box {
+  display: block;       /* makes <a> behave like a <div> */
+  text-decoration: none;
+  color: inherit;
+}
+
+.cube-box {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cube-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cube-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.cube-icon {
+  font-size: 2rem;
+}
+
+.cube-number,
+.cube-status {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #C25100;
+}
+
+.cube-box h3 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.cube-box p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* === Responsive: stack on smaller screens === */
+@media (max-width: 900px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .map-section,
+  .info-boxes {
+    width: 100%;
+  }
+
+  .info-boxes {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cube-box {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+/* === Info Section === */
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.info-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.info-card h4 {
+    margin-top: 0;
+    color: #C25100;
+    font-size: 1.2rem;
+}
+
+.info-card p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+
+/* === Footer === */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+.footer-section h5,
+.footer-section h6 {
+    margin-bottom: 10px;
+    color: #fca311;
+    font-weight: bold;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #555;
+    color: #bbb;
+    font-size: 0.8rem;
+}
+
+.top-left-user {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  right: 10px;       /* add this to allow content to stretch */
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* push username left, logout right */
+}
+
+.logout {
+  position: absolute;          /* position relative to .header */
+  right: 20px;                 /* same as .login */
+  top: 50%;                   /* vertically center */
+  transform: translateY(-50%);
+  
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+  background-color: #0056b3;
+}
+
+.custom-bootstrap-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Customize the Leaflet popup container */
+.leaflet-popup-content-wrapper {
+  background: #fff;              /* White background */
+  border-radius: 12px;           /* Rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+  padding: 15px 20px;            /* Padding inside the popup */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 320px;              /* Max width */
+  color: #222;
+  animation: fadeInPopup 0.4s ease forwards;
+}
+
+/* Popup tip (the little arrow) */
+.leaflet-popup-tip {
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Popup close button style */
+.leaflet-popup-close-button {
+  color: #007bff;
+  font-size: 18px;
+  font-weight: 700;
+  right: 10px;
+  top: 10px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.leaflet-popup-close-button:hover {
+  opacity: 1;
+}
+
+
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+}

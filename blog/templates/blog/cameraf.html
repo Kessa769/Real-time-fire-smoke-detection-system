@@ -1,0 +1,11 @@
+
+{% block camera_content %}
+<div id="popupFormTemplate">
+  <form method="POST" action="{% url 'mainpage' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add Camera" />
+  </form>
+</div>
+
+{% endblock %}
